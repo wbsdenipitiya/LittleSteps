@@ -124,15 +124,3 @@ flutter pub get
 flutter run
 ```
 
----
-
-## 📊 7. Viva Presentation Reference (Quick-Answer Crib Sheet)
-
-When presenting **LittleSteps** to your supervisors, refer to these technical highlights to justify your engineering choices:
-
-1.  **"How does the app know it is on an emulator?"**
-    *   *Answer:* It uses `device_info_plus` to inspect properties like `fingerprint`, `hardware`, and `model`. If they contain virtual keys (`google_sdk`, `vbox`, etc.), it automatically triggers the emulator simulation mode to bypass physical biometric sensor constraints.
-2.  **"Why didn't you use Supabase Realtime Streams?"**
-    *   *Answer:* Realtime socket pipelines can hang or disconnect on firewalled academic networks or emulators. We engineered a robust, cached Riverpod `milestonesProvider` that performs stable REST queries, combined with selective state invalidation to achieve instant reactivity without network overhead.
-3.  **"How is timezone offset handled for badges?"**
-    *   *Answer:* Trophies are saved with UTC timestamps. The frontend parses them into local device time and compares them with the user's localized `DateTime.now()` to ensure badges earned today are instantly credited regardless of server timezone offsets.
