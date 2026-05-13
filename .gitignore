@@ -44,7 +44,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Ignore README.md as requested by user
-/README.md
+# Ignore local terminal_commands guide
+/terminal_commands.md
+
+
 
 
