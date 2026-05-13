@@ -46,3 +46,5 @@ app.*.map.json
 
 # Ignore README.md as requested by user
 /README.md
+
+
